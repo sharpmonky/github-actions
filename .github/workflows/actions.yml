@@ -19,7 +19,7 @@ jobs:
           git config --global user.email "my-bot@bot.com"
           git config --global user.name "my-bot"
           git fetch
-          git checkout develop
+          git checkout -b develop
           git pull origin develop
           ls -a
           echo $RANDOM >> random.txt
