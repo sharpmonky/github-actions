@@ -17,7 +17,7 @@ jobs:
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
-          echo "${{ github.token }}"
+          echo "${github.token}"
       - name: Checkout
         uses: actions/checkout@v1
       - name: List Files After Checkout
@@ -30,4 +30,4 @@ jobs:
         with:
           who-to-greet: john
       - name: Log Greet time
-        run: echo "${{ steps.greet.outputs.time }}"
+        run: echo "${steps.greet.outputs.time}"
