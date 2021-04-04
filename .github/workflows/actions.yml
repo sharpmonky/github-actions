@@ -36,8 +36,10 @@ jobs:
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
       - name: Checkout
+        if: failure()
         uses: actions/checkout@v1
       - name: List Files After Checkout
+        if: always()
         run: |
           pwd
           ls -a
