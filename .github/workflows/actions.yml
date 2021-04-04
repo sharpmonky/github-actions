@@ -10,23 +10,23 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: push a random file
-        run: |
-          pwd
-          ls -a
-          git init
-          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
-          git config --global user.email "my-bot@bot.com"
-          git config --global user.name "my-bot"
-          git fetch
-          git checkout master
-          git pull origin master
-          ls -a
-          echo $RANDOM >> random.txt
-          ls -a
-          git add .
-          git commit -m "random"
-          git push origin master
+      # - name: push a random file
+      #   run: |
+      #     pwd
+      #     ls -a
+      #     git init
+      #     git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+      #     git config --global user.email "my-bot@bot.com"
+      #     git config --global user.name "my-bot"
+      #     git fetch
+      #     git checkout master
+      #     git pull origin master
+      #     ls -a
+      #     echo $RANDOM >> random.txt
+      #     ls -a
+      #     git add .
+      #     git commit -m "random"
+      #     git push origin master
       - name: List Files
         run: |
           pwd
