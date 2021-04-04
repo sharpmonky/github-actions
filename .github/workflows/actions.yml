@@ -19,14 +19,14 @@ jobs:
           git config --global user.email "my-bot@bot.com"
           git config --global user.name "my-bot"
           git fetch
-          git checkout -b develop
-          git pull origin develop
+          git checkout master
+          git pull origin master
           ls -a
           echo $RANDOM >> random.txt
           ls -a
           git add .
           git commit -m "random"
-          git push origin develop
+          git push origin master
       - name: List Files
         run: |
           pwd
