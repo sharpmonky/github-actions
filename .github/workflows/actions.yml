@@ -14,6 +14,7 @@ jobs:
         run: |
           pwd
           ls -a
+          git init
           git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com"
           git config --global user.email "my-bot@bot.com"
           git config --global user.name "my-bot"
