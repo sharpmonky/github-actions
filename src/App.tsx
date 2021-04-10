@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Dao = () => {
   return (
@@ -9,7 +9,7 @@ const Dao = () => {
 const App: React.FC = () => {
   return (
     <div>
-      Hello World!!!
+      Hello World!!
       <Dao />
     </div>
   )
