@@ -2,6 +2,8 @@ name: CI
 on:
   pull_request:
     branches: [develop]
+  push:
+    branches: [develop]
 
 jobs:
   build:
@@ -21,4 +23,13 @@ jobs:
         run: yarn test
         env:
           CI: true
+      - name: build
+        if: github.event_name == 'push'
+        run: yarn build
+      - name: deploy
+        if: github.event_name == 'push'
+        run: yarn surge --project ./build --domain udemy-github-actions.sh
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
