@@ -31,12 +31,18 @@ jobs:
       - name: eslint
         run: yarn eslint
       - name: jest test
-        run: yarn test
+        run: yarn test --coverage
         env:
           CI: true
+      - name: upload test coverage
+        uses: actions/upload-artifact@v1
+        with:
+          name: code-coverage
+          path: coverage
       - name: build
         if: github.event_name == 'push'
         run: yarn build
+      - uses: actions/download-artifact
       - name: deploy
         if: github.event_name == 'push'
         run: yarn surge --project ./build --domain udemy-github-actions.surge.sh
