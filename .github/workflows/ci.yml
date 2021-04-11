@@ -1,9 +1,9 @@
 name: CI
 on:
   pull_request:
-    branches: [develop]
+    branches: [develop, master]
   push:
-    branches: [develop]
+    branches: [develop, master]
 
 jobs:
   build:
@@ -45,6 +45,11 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: code-coverage
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      - name: create release note
+        run: yarn semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: deploy
         if: github.event_name == 'push'
         run: yarn surge --project ./build --domain udemy-github-actions.surge.sh

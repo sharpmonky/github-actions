@@ -1,3 +1,4 @@
 build
 node_modules
 reportWebVitals.ts
+release.config.js
